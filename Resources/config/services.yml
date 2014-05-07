@@ -1,0 +1,7 @@
+parameters:
+#    smile_srg_system_option.example.class: SmileSRG\SystemOptionBundle\Example
+
+services:
+#    smile_srg_system_option.example:
+#        class: %smile_srg_system_option.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
