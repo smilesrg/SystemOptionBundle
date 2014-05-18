@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <document name="SmileSRG\SystemOptionBundle\Model\SystemOption" collection="system_option">
+        <field fieldName="id" type="id" />
+        <field fieldName="key" type="string" />
+        <field fieldName="value" type="string" />
+        <field fieldName="description" type="string" />
+        <field fieldName="type" type="string" />
+    </document>
+</doctrine-mongo-mapping>
