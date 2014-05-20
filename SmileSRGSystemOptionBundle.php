@@ -24,8 +24,7 @@ class SmileSRGSystemOptionBundle extends Bundle
             $container->addCompilerPass(
                 DoctrineOrmMappingsPass::createXmlMappingDriver(
                     $mappings,
-                    array('system_option.model_manager'),
-                    'system_option.backend_type_orm'
+                    array('system_option.model_manager')
                 ));
         }
 
@@ -34,8 +33,7 @@ class SmileSRGSystemOptionBundle extends Bundle
             $container->addCompilerPass(
                 DoctrineMongoDBMappingsPass::createXmlMappingDriver(
                     $mappings,
-                    array('system_option.model_manager'),
-                    'system_option.backend_type_mongodb'
+                    array('system_option.model_manager')
                 ));
         }
     }

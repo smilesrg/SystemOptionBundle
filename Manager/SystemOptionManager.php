@@ -4,6 +4,7 @@ namespace SmileSRG\SystemOptionBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 class SystemOptionManager implements SystemOptionManagerInterface
 {
@@ -17,10 +18,13 @@ class SystemOptionManager implements SystemOptionManagerInterface
      */
     protected $logger;
 
-    public function __construct(ObjectManager $om, LoggerInterface $logger)
+    protected $modelClass;
+
+    public function __construct(ObjectManager $om, $modelClass, LoggerInterface $logger)
     {
         $this->om = $om;
-        $this->logger = $logger;
+        $this->modelClass = $modelClass;
+        $this->logger = $logger ?: new NullLogger();
     }
 
     /**
@@ -33,7 +37,7 @@ class SystemOptionManager implements SystemOptionManagerInterface
     public function getOption($key)
     {
         $option = $this->om
-            ->getRepository('SmileSRGSystemOptionBundle:SystemOption')
+            ->getRepository($this->modelClass)
             ->findOneByKey($key)
         ;
 

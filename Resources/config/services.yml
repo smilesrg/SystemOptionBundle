@@ -1,16 +1,17 @@
 parameters:
     system_option.model_manager: ~
     system_option.manager.class: SmileSRG\SystemOptionBundle\Manager\SystemOptionManager
+    system_option.model.class: SmileSRG\SystemOptionBundle\Model\SystemOption
 
 services:
     system_option.manager:
-        class: SmileSRG\SystemOptionBundle\Manager\SystemOptionManager
-        arguments: [%system_option.model_manager%, @logger]
+        class: %system_option.manager.class%
+        arguments: [@doctrine.orm.entity_manager, %system_option.model.class%, @?logger]
         tags:
             - { name: monolog.logger, channel: system_option }
 
     twig.system_option_extension:
-        class: %system_option.manager.class%
+        class: SmileSRG\SystemOptionBundle\Twig\SystemOptionExtension
         arguments: [@system_option.manager]
         tags:
             - { name: twig.extension }

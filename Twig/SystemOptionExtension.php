@@ -1,14 +1,14 @@
 <?php
 
-namespace PrestoHeads\SystemOptionBundle\Twig;
+namespace SmileSRG\SystemOptionBundle\Twig;
 
-use SmileSRG\SystemOptionBundle\Manager\SystemOptionManager;
+use SmileSRG\SystemOptionBundle\Manager\SystemOptionManagerInterface;
 
 class SystemOptionExtension extends \Twig_Extension
 {
     protected $manager;
 
-    public function __construct(SystemOptionManager $manager)
+    public function __construct(SystemOptionManagerInterface $manager)
     {
         $this->manager = $manager;
     }

@@ -4,7 +4,7 @@ namespace SmileSRG\SystemOptionBundle\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class SystemOption
+class SystemOption implements SystemOptionInterface
 {
     /**
      * @var mixed id
