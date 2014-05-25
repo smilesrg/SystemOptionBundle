@@ -1,12 +1,12 @@
 parameters:
-    system_option.model_manager: ~
+    system_option.model_manager: default
     system_option.manager.class: SmileSRG\SystemOptionBundle\Manager\SystemOptionManager
     system_option.model.class: SmileSRG\SystemOptionBundle\Model\SystemOption
 
 services:
     system_option.manager:
         class: %system_option.manager.class%
-        arguments: [@doctrine.orm.entity_manager, %system_option.model.class%, @?logger]
+        arguments: [%system_option.model_manager%, %system_option.model.class%, @?logger]
         tags:
             - { name: monolog.logger, channel: system_option }
 
